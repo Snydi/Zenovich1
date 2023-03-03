@@ -12,15 +12,16 @@ int main()
     string input;
     string output;
     string result;
-
+    bool flag = false;
     int state = 1;
     cin >> input;
-
+    input += " ";
+    bool abcWas = false;
 
     
     for (int i = 0; i < input.length(); i++)
     {
-      
+       // if (flag) break;
         switch (state)
         {
         case 1:
@@ -77,6 +78,7 @@ int main()
             }
             else
             {
+                i--;
                 state = 1;
                 output = "";
                 break;
@@ -97,9 +99,13 @@ int main()
             }
             else
             {
+               
                 result += output;
+                result += " ";
                 state = 1; 
+                abcWas = true;
                 break;
+                
             }
         case 5:
             if (input[i] == 'a')
@@ -136,7 +142,10 @@ int main()
             }
             else
             {
+           
+                
                 result += output;
+                result += " ";
                 state = 1;
                 break;
             }
@@ -152,7 +161,7 @@ int main()
     }
     
   
-    cout << result;
+    std::cout << result;
 }
 
 
